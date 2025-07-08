@@ -1,5 +1,41 @@
 const express = require("express");
 const users = [];
+const projects = [
+  {
+    id: 1,
+    title: "Aplikacja do zarządzania zadaniami",
+    description: "Prosta aplikacja kanban z Reactem i Node.js.",
+    skillsRequired: ["React", "Node.js", "MongoDB"],
+    owner: "janek",
+    members: ["janek"],
+  },
+  {
+    id: 2,
+    title: "Strona portfolio dla grafika",
+    description:
+      "Potrzebuję frontend developera do zbudowania mojego portfolio.",
+    skillsRequired: ["HTML", "CSS", "React"],
+    owner: "ania",
+    members: ["ania"],
+  },
+  {
+    id: 3,
+    title: "AI Chatbot do nauki języków",
+    description:
+      "Pomysł na aplikację z AI do nauki języków, potrzebny backend i NLP specjalista.",
+    skillsRequired: ["Python", "NLP", "React"],
+    owner: "marek",
+    members: ["marek"],
+  },
+  {
+    id: 4,
+    title: "Kalkulator budżetu domowego",
+    description: "Chcę zrobić prostą appkę finansową na React Native.",
+    skillsRequired: ["React Native", "TypeScript", "Firebase"],
+    owner: "ola",
+    members: ["ola"],
+  },
+];
 const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -96,4 +132,45 @@ app.put("/api/profile", authMiddleware, (req, res) => {
   if (skills !== undefined && Array.isArray(skills)) user.skills = skills;
 
   res.json({ message: "Profil zaktualizowany" });
+});
+
+//Tworzenie nowego projektu
+app.post("/api/projects", authMiddleware, (req, res) => {
+  const { title, description, skillsRequired } = req.body;
+
+  if (!title || !description) {
+    return res.status(400).json({ message: "Brakuje wymaganych pól" });
+  }
+
+  const newProject = {
+    id: projects.length + 1,
+    title,
+    description,
+    skillsRequired: skillsRequired || [],
+    owner: req.user.username,
+    members: [req.user.username],
+  };
+
+  projects.push(newProject);
+  res.status(201).json({ message: "Projekt utworzony", project: newProject });
+});
+
+//Wsszystkie projekty
+app.get("/api/projects", (req, res) => {
+  res.json(projects);
+});
+
+//Dołącanie do projektu
+app.post("/api/projects/:id/join", authMiddleware, (req, res) => {
+  const id = parseInt(req.params.id);
+  const project = projects.find((p) => p.id === id);
+  if (!project)
+    return res.status(404).json({ message: "Nie znaleziono projektu" });
+
+  if (project.members.includes(req.user.username)) {
+    return res.status(400).json({ message: "Już jesteś w projekcie" });
+  }
+
+  project.members.push(req.user.username);
+  res.json({ message: "Dołączono do projektu" });
 });

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Login from "./Login";
 import Profile from "./Profile";
+import Projects from "./Projects";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <h1>SkillMatch</h1>
       <button onClick={handleLogout}>Wyloguj się</button>
       <Profile token={token} />
+      <Projects token={token}></Projects>
     </div>
   );
 }
