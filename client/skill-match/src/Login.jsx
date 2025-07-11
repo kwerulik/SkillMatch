@@ -22,7 +22,7 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div>
+    <div className="login-container">
       <h2>{isRegister ? "Rejestracja" : "Logowanie"}</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -38,9 +38,9 @@ export default function Login({ onLogin }) {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">{isRegister ? "Zarejestruj" : "Zaloguj"}</button>
+        <button className="btn" type="submit">{isRegister ? "Zarejestruj" : "Zaloguj"}</button>
       </form>
-      <button onClick={() => setIsRegister(!isRegister)}>
+      <button className="switch-btn" onClick={() => setIsRegister(!isRegister)}>
         {isRegister
           ? "Masz konto? Zaloguj się"
           : "Nie masz konta? Zarejestruj się"}

@@ -88,7 +88,7 @@ export default function Projects({ token }) {
       <hr />
 
       {projects.map((proj) => (
-        <div key={proj.id} className="border p-2 my-2 rounded">
+        <div key={proj._id || proj.id} className="border p-2 my-2 rounded">
           <h3>{proj.title}</h3>
           <p>{proj.description}</p>
           <p>
@@ -100,7 +100,7 @@ export default function Projects({ token }) {
           <p>
             <b>Członkowie:</b> {proj.members.join(", ")}
           </p>
-          <button className="btn" onClick={() => handleJoin(proj.id)}>Dołącz</button>
+          <button className="btn" onClick={() => handleJoin(proj._id || proj.id)}>Dołącz</button>
         </div>
       ))}
 
