@@ -40,6 +40,15 @@ const cors = require("cors");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const SECRET = "supersecretkey";
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('Połączono z MongoDB Atlas!'))
+.catch(err => console.error('Błąd połączenia z MongoDB:', err));
 
 const app = express();
 app.use(cors());
