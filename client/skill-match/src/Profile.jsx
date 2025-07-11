@@ -60,7 +60,7 @@ function Profile({ token }) {
   return (
     <div>
       {editMode ? (
-        <>
+        <div className="form-row">
           <input
             name="name"
             value={form.name}
@@ -81,7 +81,7 @@ function Profile({ token }) {
           />
           <button onClick={handleSave}>Zapisz</button>
           <button onClick={() => setEditMode(false)}>Anuluj</button>
-        </>
+        </div>
       ) : (
         <>
           <h2>{profile.name || "Brak imienia"}</h2>

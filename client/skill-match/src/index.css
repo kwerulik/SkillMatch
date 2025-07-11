@@ -1,0 +1,193 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+  background: #f4f6fb;
+  color: #232946;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 2rem;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #232946;
+  color: #fff;
+  padding: 0.75rem 2rem;
+  border-radius: 0 0 16px 16px;
+  box-shadow: 0 2px 8px rgba(30,41,59,0.08);
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #f4d35e;
+  text-decoration: none;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+.navbar-link:hover {
+  color: #f4d35e;
+}
+
+.navbar-logout, .btn, button {
+  background: #232946;
+  color: #f4d35e;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(56,189,248,0.08);
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.navbar-logout:hover, .btn:hover, button:hover {
+  background: #f4d35e;
+  color: #232946;
+}
+
+button:disabled, .btn:disabled {
+  background: #b8c1ec;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+/* Form Styles */
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  justify-content: flex-start;
+}
+
+.form-row input,
+.form-row textarea {
+  flex: 1 1 200px;
+  min-width: 180px;
+  max-width: 350px;
+  box-sizing: border-box;
+  height: 48px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.form-row textarea {
+  min-height: 48px;
+  max-height: 80px;
+  resize: vertical;
+}
+
+.form-row button, .form-row .btn {
+  height: 48px;
+  min-width: 100px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .form-row input,
+  .form-row textarea,
+  .form-row button {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+input, textarea {
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border: 1.5px solid #b8c1ec;
+  border-radius: 6px;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  background: #f4f6fb;
+  color: #232946;
+  resize: none;
+}
+
+input:focus, textarea:focus {
+  border: 2px solid #f4d35e;
+  box-shadow: 0 0 0 2px #f4d35e33;
+}
+
+textarea {
+  min-width: 250px;
+  min-height: 2.5em;
+  max-width: 400px;
+}
+
+/* Project/Section Card Styles */
+.border {
+  border: 1px solid #e2e8f0;
+}
+.p-2 {
+  padding: 0.75rem;
+}
+.my-2 {
+  margin: 1rem 0;
+}
+.rounded {
+  border-radius: 10px;
+}
+
+/* Headings */
+h2, h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* Utility */
+.p-4 {
+  padding: 2rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 1.5rem 0;
+}

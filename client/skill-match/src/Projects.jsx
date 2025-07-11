@@ -63,7 +63,7 @@ export default function Projects({ token }) {
     <div className="p-4">
       <h2>Projekty</h2>
 
-      <div>
+      <div className="form-row">
         <input
           name="title"
           value={form.title}
@@ -82,7 +82,7 @@ export default function Projects({ token }) {
           onChange={handleChange}
           placeholder="Wymagane skille (oddzielone przecinkami)"
         />
-        <button onClick={handleCreate}>Utwórz projekt</button>
+        <button className="btn" onClick={handleCreate}>Utwórz projekt</button>
       </div>
 
       <hr />
@@ -100,7 +100,7 @@ export default function Projects({ token }) {
           <p>
             <b>Członkowie:</b> {proj.members.join(", ")}
           </p>
-          <button onClick={() => handleJoin(proj.id)}>Dołącz</button>
+          <button className="btn" onClick={() => handleJoin(proj.id)}>Dołącz</button>
         </div>
       ))}
 
