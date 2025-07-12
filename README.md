@@ -1,6 +1,6 @@
 # SkillMatch
 
-SkillMatch is a full-stack web application for connecting developers and creatives to collaborate on projects. Users can create profiles, list their skills, create and join projects, and manage their collaboration online.
+SkillMatch - A full-stack web application built for learning purposes, connecting developers and creatives for collaborative projects. Built with React, Node.js, and MongoDB, it features user authentication, profile management, project creation, and team collaboration tools.
 
 ## Features
 - User registration and login (JWT authentication)
@@ -75,8 +75,5 @@ SkillMatch/
 ## Environment Variables
 - `MONGODB_URI` – MongoDB connection string (see above)
 
-## License
-MIT
-
 ---
-Feel free to contribute or open issues/PRs!
+
